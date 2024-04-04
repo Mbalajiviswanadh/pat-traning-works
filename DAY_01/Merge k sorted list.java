@@ -63,7 +63,7 @@ class ListNode {
             lists[i] = head;
         }
 
-        Main solution = new Main();
+        Merge_k_LL solution = new Merge_k_LL();
         ListNode mergedList = solution.mergeKLists(lists);
         while (mergedList != null) {
             System.out.print(mergedList.val + " ");
