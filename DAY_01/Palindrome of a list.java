@@ -71,9 +71,4 @@ import java.util.*;
         boolean result = m1.isPalindrome();
         System.out.println(result);
     }
-
-    public ListNode mergeKLists(ListNode[] lists) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'mergeKLists'");
-    }
 }
