@@ -71,9 +71,9 @@ import java.util.*;
         Main m1 = new Main();
         Scanner sc = new Scanner(System.in);
         
-        int size = sc.nextInt(); // Read the size of the sequence
+        int size = sc.nextInt(); 
         for (int i = 0; i < size; i++) {
-            int num = sc.nextInt(); // Read each integer in the sequence
+            int num = sc.nextInt(); 
             m1.addNode(num);
         }
         
