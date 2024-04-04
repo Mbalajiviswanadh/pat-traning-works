@@ -1,79 +1,111 @@
 package DAY_01;
 
 import java.util.*;
-class Merge_TwoSortedLL{
-    static Node head;
 
+class Node {
+    int data;
+    Node next;
 
-    static class Node{
-        Node next;
-        int data;
+    public Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
 
+class LinkedList {
+    Node head;
 
-        Node(int data){
-            this.data=data;
-            this.next=null;
+    public LinkedList() {
+        this.head = null;
+    }
+
+    public void insert(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+        } else {
+            Node current = head;
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = newNode;
         }
     }
 
-
-    public static void insertValue(int data){
-        Node newNode =new Node(data);
-
-        if(head==null){
-            head=newNode;
-            return ;
+    public void display() {
+        Node current = head;
+        while (current != null) {
+            System.out.print(current.data + " ");
+            current = current.next;
         }
-
-        Node curr=head;
-        while(curr.next!=null){
-            curr=curr.next;
-        }
-        curr.next=newNode;
+        System.out.println();
     }
 
-    public static void merged_LL(){
-        
-    }
+    public static LinkedList mergeSortedLists(LinkedList list1, LinkedList list2) {
+        LinkedList mergedList = new LinkedList();
+        Node current1 = list1.head;
+        Node current2 = list2.head;
 
-
-    public static void display(){
-        if(head==null){
-            System.out.println("List is Empty");
-            
+        while (current1 != null && current2 != null) {
+            if (current1.data < current2.data) {
+                mergedList.insert(current1.data);
+                current1 = current1.next;
+            } else {
+                mergedList.insert(current2.data);
+                current2 = current2.next;
+            }
         }
 
-        Node curr=head;
-        while(curr!=null){
-            System.out.print(curr.data+" -> ");
-            curr=curr.next;
+        while (current1 != null) {
+            mergedList.insert(current1.data);
+            current1 = current1.next;
         }
-        System.out.println("NULL");
+
+        while (current2 != null) {
+            mergedList.insert(current2.data);
+            current2 = current2.next;
+        }
+
+        return mergedList;
     }
+}
+
+ class Merge_TwosortedLL {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Merge_TwoSortedLL m_ll=new Merge_TwoSortedLL();
-        System.out.println("ENter the size of 1st LL :");
+
+        // Create and populate first linked list
+        LinkedList list1 = new LinkedList();
+        System.out.println("Enter the size of the linked list :");
         int n1=sc.nextInt();
+        System.out.println("Enter elements for the first linked list:");
 
-        System.out.println("ENter the values inside :");
         for(int i=0;i<n1;i++){
-            int data=sc.nextInt();
-            m_ll.insertValue(data);
-
+            int data = sc.nextInt();
+            list1.insert(data);
         }
 
-        System.out.println("Enter the size of 2nd LL");
+        // Create and populate second linked list
+        LinkedList list2 = new LinkedList();
+        System.out.println("Enter the size of the linked list :");
         int n2=sc.nextInt();
+        System.out.println("Enter elements for the second linked list:");
+
         for(int i=0;i<n2;i++){
-            int data=sc.nextInt();
-            m_ll.insertValue(data);
-
+            int data = sc.nextInt();
+            list2.insert(data);
         }
+    
 
-        System.out.println("Taken LL:");
-        display();
+        System.out.println("List 1:");
+        list1.display();
+        System.out.println("List 2:");
+        list2.display();
 
+        LinkedList mergedList = LinkedList.mergeSortedLists(list1, list2);
+        System.out.println("Merged Sorted List:");
+        mergedList.display();
 
+        sc.close();
     }
 }
