@@ -3,6 +3,7 @@ package DAY_01;
 import java.util.*;
 
 
+import java.util.*;
 
  class Main {
     class Node {
@@ -31,40 +32,30 @@ import java.util.*;
         size++;
     }
 
-    public void isPalindrome() {
-        Node current = head;
-        boolean flag = true;
-        int mid = (size % 2 == 0) ? (size / 2) : ((size + 1) / 2);
-        for (int i = 1; i < mid; i++) {
-            current = current.next;
-        }
-        Node revHead = reverselist(current.next);
-        while (head != null && revHead != null) {
-            if (head.data != revHead.data) {
-                flag = false;
-                break;
-            }
-            head = head.next;
-            revHead = revHead.next;
-        }
-        if (flag) {
-            System.out.println("true");
-        } else {
-            System.out.println("false");
-        }
-    }
+    public boolean isPalindrome() {
+        Node fast = head;
+        Node slow = head;
+        Stack<Integer> stack = new Stack<>();
 
-    public Node reverselist(Node temp) {
-        Node current = temp;
-        Node prevNode = null;
-        Node nextNode = null;
-        while (current != null) {
-            nextNode = current.next;
-            current.next = prevNode;
-            prevNode = current;
-            current = nextNode;
+        while (fast != null && fast.next != null) {
+            stack.push(slow.data);
+            slow = slow.next;
+            fast = fast.next.next;
         }
-        return prevNode;
+
+        // If the size is odd, move the slow pointer one step forward
+        if (fast != null) {
+            slow = slow.next;
+        }
+
+        while (slow != null) {
+            int top = stack.pop();
+            if (top != slow.data) {
+                return false;
+            }
+            slow = slow.next;
+        }
+        return true;
     }
 
     public static void main(String[] args) {
@@ -77,6 +68,12 @@ import java.util.*;
             m1.addNode(num);
         }
         
-        m1.isPalindrome();
+        boolean result = m1.isPalindrome();
+        System.out.println(result);
+    }
+
+    public ListNode mergeKLists(ListNode[] lists) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'mergeKLists'");
     }
 }
