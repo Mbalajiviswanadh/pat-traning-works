@@ -12,7 +12,7 @@ class treeNode{
             return;
         }
         inorder(curr.left);
-        System.out.println(curr.data+" ");
+        System.out.print(curr.data+" ");
         inorder(curr.right);
     }
     
