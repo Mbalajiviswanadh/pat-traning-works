@@ -1,18 +1,19 @@
 package DAY_02;
 import java.util.*;
 
-class treeNode {
-    int data;
-    treeNode left, right;
 
-    treeNode(int n) {
-        this.data = n;
+class Binary_tree {
+    static class treeNode {
+        int data;
+        treeNode left, right;
+    
+        treeNode(int n) {
+            this.data = n;
+
+        }
     }
-}
-
-class tree {
-
     treeNode root;
+
 
     // in order traversal
     public void inorder(treeNode curr) {
@@ -56,10 +57,7 @@ class tree {
             }
         }
     }
-}
-
-class demo {
-    static treeNode buildtree(String str[],tree t){
+    public static treeNode buildtree(String str[],Binary_tree t){
         if(str[0]=="N"){
             return null;
         }
@@ -84,15 +82,16 @@ class demo {
         }
         return t.root;
     }
+
     public static void main(String[] args) {
         
-        
-        tree t = new tree();
+
+        Binary_tree t = new Binary_tree();
         Scanner sc= new Scanner(System.in);
-        System.out.println("Build tree");
+        System.out.println("Enter values:");
         String[]  strtree= sc.nextLine().split(" ");
 
-        buildtree(strtree,t);
+        t.buildtree(strtree,t);
 
         System.out.println("\nInorder:");
         t.inorder(t.root); 
@@ -107,4 +106,29 @@ class demo {
         t.levelOrder();
     }
 }
+
+// class Binary_tree {
+//     public static void main(String[] args) {
+        
+
+//         tree t = new tree();
+//         Scanner sc= new Scanner(System.in);
+//         System.out.println("Enter values:");
+//         String[]  strtree= sc.nextLine().split(" ");
+
+//         t.buildtree(strtree,t);
+
+//         System.out.println("\nInorder:");
+//         t.inorder(t.root); 
+//         System.out.println();
+//         System.out.println("\nPreOrder:");
+//         t.preOrder(t.root); 
+//         System.out.println();
+//         System.out.println("\nPost Order:");
+//         t.postOrder(t.root); 
+//         System.out.println();
+//         System.out.println("\nLevel Order: ");
+//         t.levelOrder();
+//     }
+// }
 
