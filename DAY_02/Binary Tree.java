@@ -57,8 +57,8 @@ class Binary_tree {
             }
         }
     }
-    public static treeNode buildtree(String str[],Binary_tree t){
-        if(str[0]=="N"){
+    public treeNode buildtree(String str[],Binary_tree t){
+        if(str[0].equals("N")){
             return null;
         }
         t.root =new treeNode(Integer.parseInt(str[0]));
