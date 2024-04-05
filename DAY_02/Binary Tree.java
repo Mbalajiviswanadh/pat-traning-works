@@ -83,15 +83,13 @@ class demo {
             i++;
         }
         return t.root;
-
-
     }
     public static void main(String[] args) {
         
         
         tree t = new tree();
         Scanner sc= new Scanner(System.in);
-        System.out.println("Enter values:");
+        System.out.println("Build tree");
         String[]  strtree= sc.nextLine().split(" ");
 
         buildtree(strtree,t);
