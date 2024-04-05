@@ -42,18 +42,47 @@ class tree {
 }
 
 class demo {
-    public static void main(String[] args) {
-        tree t = new tree();
-        t.root = new treeNode(1);
-        t.root.left = new treeNode(5);
-        t.root.right = new treeNode(6);
-        t.root.left.left = new treeNode(2);
-        t.root.left.right = new treeNode(7);
-        t.root.right.left = new treeNode(8);
-        t.root.right.right = new treeNode(9);
+    static treeNode buildtree(String str[],tree t){
+        if(str[0]=="N"){
+            return null;
+        }
+        t.root =new treeNode(Integer.parseInt(str[0]));
+        Queue<treeNode> q=new LinkedList<treeNode>();
+        q.add(t.root);
+        int i=1;
+        while(i < str.length){
+            treeNode cur = q.poll();
+            if(!str[i].equals("N")){
+                cur.left = new treeNode(Integer.parseInt(str[i]));
+                q.add(cur.left);
+            }
+            i++;
+            if(i >= str.length)
+                break;
+            if(!str[i].equals("N")){
+                cur.right = new treeNode(Integer.parseInt(str[i]));
+                q.add(cur.right);
+            }
+            i++;
+        }
+        return t.root;
 
+
+    }
+    public static void main(String[] args) {
+        
+        
+        tree t = new tree();
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Enter values:");
+        String[]  strtree= sc.nextLine().split(" ");
+
+        buildtree(strtree,t);
+
+        System.out.println("Inorder:");
         t.inorder(t.root); 
         System.out.println();
+        System.out.println("Level Order: ");
         t.levelOrder();
     }
 }
