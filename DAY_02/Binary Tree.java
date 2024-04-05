@@ -23,6 +23,23 @@ class tree {
         System.out.print(curr.data + " ");
         inorder(curr.right);
     }
+    public void preOrder(treeNode curr) {
+        if (curr == null) {
+            return;
+        }
+        System.out.print(curr.data + " ");
+        preOrder(curr.left);
+        preOrder(curr.right);
+    }
+
+    public void postOrder(treeNode curr) {
+        if (curr == null) {
+            return;
+        }
+        postOrder(curr.left);
+        postOrder(curr.right);
+        System.out.print(curr.data + " ");
+    }
 
     public void levelOrder() {
         Queue<treeNode> q = new LinkedList<treeNode>();
@@ -79,10 +96,16 @@ class demo {
 
         buildtree(strtree,t);
 
-        System.out.println("Inorder:");
+        System.out.println("\nInorder:");
         t.inorder(t.root); 
         System.out.println();
-        System.out.println("Level Order: ");
+        System.out.println("\nPreOrder:");
+        t.preOrder(t.root); 
+        System.out.println();
+        System.out.println("\nPost Order:");
+        t.postOrder(t.root); 
+        System.out.println();
+        System.out.println("\nLevel Order: ");
         t.levelOrder();
     }
 }
