@@ -36,6 +36,7 @@ class Sorted_perms{
         for (String perm_p : permutations) {
             System.out.println(perm_p);
         }
+        sc.close();
     }
 }
 

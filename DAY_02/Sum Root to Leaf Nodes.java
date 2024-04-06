@@ -79,5 +79,6 @@ class Sum_rootToLeaf {
 
         int result = sumRootToLeaf.sumNumbers(root);
         System.out.println(result);
+        scanner.close();
     }
 }
