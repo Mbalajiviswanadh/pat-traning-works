@@ -39,4 +39,3 @@ class Sorted_perms{
         sc.close();
     }
 }
-
