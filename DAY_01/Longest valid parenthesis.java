@@ -27,5 +27,6 @@ class Longest_valid_paranthesis{
       
     }
     System.out.println(max);
+    SC.close();
   }
 }
