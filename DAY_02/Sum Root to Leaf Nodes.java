@@ -1,5 +1,5 @@
 package DAY_02;
-import java.util.Scanner;
+import java.util.*;
 
 
 class Sum_rootToLeaf {
@@ -11,6 +11,7 @@ class Sum_rootToLeaf {
             this.val = val;
         }
     }
+    static TreeNode root;
     public int sumNumbers(TreeNode root) {
         return sumNumbersHelper(root, "");
     }
@@ -28,21 +29,54 @@ class Sum_rootToLeaf {
         return leftSum + rightSum;
     }
     
-        private static TreeNode buildTree(String[] values, int index) {
-            if (index >= values.length || values[index].equals("N")) {
-                return null;
+        // private static TreeNode buildTree(String[] values, int index) {
+        //     if (index >= values.length || values[index].equals("N")) {
+        //         return null;
+        //     }
+        //     TreeNode node = new TreeNode(Integer.parseInt(values[index]));
+        //     node.left = buildTree(values, 2 * index + 1);
+        //     node.right = buildTree(values, 2 * index + 2);
+        //     return node;
+        // }
+
+        public TreeNode buildTree(String[] values, Sum_rootToLeaf sumRootToLeaf){
+            
+        if(values[0].equals("N"))
+        return null;
+
+        sumRootToLeaf.root=new TreeNode(Integer.parseInt(values[0]));
+        Queue<TreeNode> q= new LinkedList<TreeNode>();
+        q.add(sumRootToLeaf.root);
+        int i=1;
+        while(i<values.length){
+            TreeNode curr=q.poll();
+            if(!values[i].equals("N")){
+                curr.left=new TreeNode(Integer.parseInt(values[i]));
+                q.add(curr.left);
             }
-            TreeNode node = new TreeNode(Integer.parseInt(values[index]));
-            node.left = buildTree(values, 2 * index + 1);
-            node.right = buildTree(values, 2 * index + 2);
-            return node;
+            i++;
+            if(i>=values.length){
+                break;
+            }
+
+            if(!values[i].equals("N")){
+                curr.right = new TreeNode(Integer.parseInt(values[i]));
+                q.add(curr.right);
+            }
+            i++;
+        }
+        return sumRootToLeaf.root;
         }
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String input = scanner.nextLine();
-        TreeNode root = buildTree(input.split(" "), 0);
         Sum_rootToLeaf sumRootToLeaf = new Sum_rootToLeaf();
+        // String input = scanner.nextLine();
+        String[] values = scanner.nextLine().split(" ");
+        // TreeNode root = buildTree(input.split(" "), 0);
+        sumRootToLeaf.buildTree(values, sumRootToLeaf);
+
+
         int result = sumRootToLeaf.sumNumbers(root);
         System.out.println(result);
     }
