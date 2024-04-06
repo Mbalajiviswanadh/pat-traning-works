@@ -6,6 +6,15 @@ import java.util.*;
     static List<List<Integer>> graph;
     static boolean[] visited;
 
+    static void dfs(int node) {
+        visited[node] = true;
+        System.out.print(node + " ");
+        for (int neighbor : graph.get(node)) {
+            if (!visited[neighbor]) {
+                dfs(neighbor);
+            }
+        }
+    }
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
@@ -25,15 +34,6 @@ import java.util.*;
         dfs(0);
         
         scanner.close();
-    }
-    static void dfs(int node) {
-        visited[node] = true;
-        System.out.print(node + " ");
-        for (int neighbor : graph.get(node)) {
-            if (!visited[neighbor]) {
-                dfs(neighbor);
-            }
-        }
     }
 }
 

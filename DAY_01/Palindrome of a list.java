@@ -2,9 +2,6 @@ package DAY_01;
 
 import java.util.*;
 
-
-import java.util.*;
-
  class Main {
     class Node {
         int data;
@@ -70,5 +67,7 @@ import java.util.*;
         
         boolean result = m1.isPalindrome();
         System.out.println(result);
+
+        sc.close();
     }
 }

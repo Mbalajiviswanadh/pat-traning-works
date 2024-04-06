@@ -29,6 +29,17 @@ class Diameter_BT {
         int rightDiameter = diameter(root.right);
         return Math.max(leftHeight + rightHeight + 1, Math.max(leftDiameter, rightDiameter));
     }
+    static Node insert(Node root, int data) {
+        if (root == null) {
+            return new Node(data);
+        }
+        if (data < root.data) {
+            root.left = insert(root.left, data);
+        } else if (data > root.data) {
+            root.right = insert(root.right, data);
+        }
+        return root;
+    }
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Diameter_BT tree = new Diameter_BT();
@@ -41,16 +52,5 @@ class Diameter_BT {
 
         System.out.println("Diameter of the given binary tree is " + tree.diameter(tree.root));
         scanner.close();
-    }
-    static Node insert(Node root, int data) {
-        if (root == null) {
-            return new Node(data);
-        }
-        if (data < root.data) {
-            root.left = insert(root.left, data);
-        } else if (data > root.data) {
-            root.right = insert(root.right, data);
-        }
-        return root;
     }
 }

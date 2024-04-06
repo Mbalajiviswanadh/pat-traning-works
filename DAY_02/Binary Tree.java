@@ -104,5 +104,7 @@ class Binary_tree {
         System.out.println();
         System.out.println("\nLevel Order: ");
         t.levelOrder();
+
+        sc.close();
     }
 }

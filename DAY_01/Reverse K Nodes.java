@@ -46,6 +46,7 @@ import java.util.Scanner;
         LinkedList<Integer> reversedList = reverseKNodes(linkedList, k);
 
         printListVertically(reversedList);
+        scanner.close();
     }
 }
 

@@ -44,6 +44,8 @@ class Rotate_list {
         // Print the rotated linked list
         System.out.println("Rotated Linked list:");
         printList(head);
+
+        scanner.close();
     }
 
     // Method to rotate the given linked list by 'rotations' positions to the left

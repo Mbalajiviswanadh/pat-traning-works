@@ -86,6 +86,7 @@ import java.util.Scanner;
             insert(list,Integer.parseInt(arr[i]));
         }
         reorder(list,n);
+        sc.close();
     }
 }
 

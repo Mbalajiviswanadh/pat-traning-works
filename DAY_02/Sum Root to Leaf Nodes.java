@@ -3,7 +3,7 @@ import java.util.*;
 
 
 class Sum_rootToLeaf {
-    static class TreeNode {
+    class TreeNode {
         int val;
         TreeNode left, right;
     
@@ -11,7 +11,7 @@ class Sum_rootToLeaf {
             this.val = val;
         }
     }
-    static TreeNode root;
+    TreeNode root;
     public int sumNumbers(TreeNode root) {
         return sumNumbersHelper(root, "");
     }
@@ -77,7 +77,7 @@ class Sum_rootToLeaf {
         sumRootToLeaf.buildTree(values, sumRootToLeaf);
 
 
-        int result = sumRootToLeaf.sumNumbers(root);
+        int result = sumRootToLeaf.sumNumbers(sumRootToLeaf.root);
         System.out.println(result);
         scanner.close();
     }

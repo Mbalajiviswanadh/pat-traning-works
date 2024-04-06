@@ -51,7 +51,10 @@ class Prims_alog {
             graph[destination][source] = weight;
         }
         System.out.println( primsmst(graph));
+      sc.close();
     }
+    
+
 
 }
 

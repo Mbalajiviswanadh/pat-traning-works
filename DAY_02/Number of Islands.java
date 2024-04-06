@@ -3,19 +3,6 @@ package DAY_02;
 import java.util.Scanner;
 
 class Number_ofIslands {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        int m = scanner.nextInt();
-        int n = scanner.nextInt();
-        int[][] grid = new int[m][n];
-        for (int i = 0; i < m; i++) {
-            for (int j = 0; j < n; j++) {
-                grid[i][j] = scanner.nextInt();
-            }
-        }
-        
-        System.out.println(countIslands(grid));
-    }
     
     public static int countIslands(int[][] grid) {
         int count = 0;
@@ -52,6 +39,20 @@ class Number_ofIslands {
         dfs(grid, i + 1, j - 1); // diagonal down-left
         dfs(grid, i - 1, j + 1); // diagonal up-right
         dfs(grid, i - 1, j - 1); // diagonal up-left
+    }
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int m = scanner.nextInt();
+        int n = scanner.nextInt();
+        int[][] grid = new int[m][n];
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                grid[i][j] = scanner.nextInt();
+            }
+        }
+        
+        System.out.println(countIslands(grid));
+        scanner.close();
     }
 }
 
