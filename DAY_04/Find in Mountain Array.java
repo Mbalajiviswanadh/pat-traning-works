@@ -2,6 +2,7 @@ package DAY_04;
 
 import java.util.Scanner;
 class Mountain_Array{
+    
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
