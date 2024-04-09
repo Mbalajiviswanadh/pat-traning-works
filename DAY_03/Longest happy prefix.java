@@ -25,7 +25,9 @@ import java.util.*;
         int longprefixlength=lps[n-1];
         return s.substring(0,longprefixlength);
     }
+
     public static void main (String[] args) throws java.lang.Exception {
+        
         Scanner sc=new Scanner(System.in);
         String s=sc.nextLine();
         System.out.println(longprefix(s));
